@@ -150,7 +150,7 @@ namespace KeeTheft
 
                 ClrInfo Version = dt.ClrVersions[0];
                 ClrRuntime Runtime = Version.CreateRuntime();
-                ClrHeap Heap = Runtime.GetHeap();
+                ClrHeap Heap = Runtime.Heap;
 
                 if (!Heap.CanWalkHeap)
                 {

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>KeeTheft</RootNamespace>
     <AssemblyName>KeeTheft</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -40,6 +40,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="Microsoft.Diagnostics.Runtime, Version=1.1.1.11812, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Diagnostics.Runtime.1.1.61812\lib\net45\Microsoft.Diagnostics.Runtime.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClrMDHelper.cs" />
@@ -58,16 +61,10 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ClrMD\src\Microsoft.Diagnostics.Runtime\Microsoft.Diagnostics.Runtime.csproj">
-      <Project>{a82126ca-23aa-41f1-8586-a5938d44d0a7}</Project>
-      <Name>Microsoft.Diagnostics.Runtime</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>mkdir "$(SolutionDir)bin\"
-"$(SolutionDir)packages\ILMerge.2.14.1208\tools\ilmerge.exe" /targetplatform:v2,C:\Windows\Microsoft.NET\Framework\v2.0.50727 /target:exe /out:"$(SolutionDir)bin\$(Configuration)$(TargetFileName)" "$(TargetPath)" "$(SolutionDir)ClrMD\src\Microsoft.Diagnostics.Runtime\bin\$(Configuration)\Microsoft.Diagnostics.Runtime.dll"</PostBuildEvent>
+"$(SolutionDir)packages\ILMerge.3.0.29\tools\net452\ilmerge.exe" /targetplatform:v4.5,C:\Windows\Microsoft.NET\Framework\v4.0.30319 /target:exe /out:"$(SolutionDir)bin\$(Configuration)$(TargetFileName)" "$(TargetPath)" "$(SolutionDir)KeeTheft\bin\$(Configuration)\Microsoft.Diagnostics.Runtime.dll" /ndebug</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

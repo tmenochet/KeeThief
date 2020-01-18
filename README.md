@@ -31,9 +31,6 @@ If a composite master key is found, information for each key type (KcpPassword, 
 
 This is a different approach than denandz' excellent [KeeFarce project](https://github.com/denandz/KeeFarce), which injects code to load a bootstrap DLL into the KeePass process, which then loads an C# assembly along with CLR MD, and executes the 'Export' method on a KeePass.DataExchange.Formats.KeePassCsv1x object in order to export all existing passwords to disk. KeeTheft walks the heap for composite key information and injects shellcode to decrypt each encryption material component as appropriate.
 
-Included in the project is a .NET 2.0 backport of the CLR MD project (necessary for PowerShell v2 compatibility). The [CLR MD](https://github.com/Microsoft/clrmd) project is licensed by Microsoft under
-the MIT license.
-
 On building the project, a merged .\KeeTheft\bin\ReleaseKeeTheft.exe binary containing KeeTheft and the CLR MD will be produced.
 
 ## PowerShell
